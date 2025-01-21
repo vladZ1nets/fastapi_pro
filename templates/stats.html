@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>info for URL</title>
+</head>
+<body>
+{% for key, value in url_data.items() if key not in ('long_url', '_id') %}
+{{ key }}: {{ value }}<br>
+{% endfor %}
+ <form action="/{{ url_data.short_url }}/stats" method="post">
+     <label for="long_url">Long_url</label>
+    <input type="text" id="long_url" name="long_url" value="{{ url_data.long_url }}"><br>
+      <input type="submit" value="Save changes">
+ </form>
+</body>
+</html>
